@@ -34,26 +34,18 @@ const LandingSection = () => {
       type: Yup.string().optional(),
       comment: Yup.string().min(25, 'Precisa conter ao menos 25 caracteres').required('campo obrigatório')
     }),
-    onSubmit: async(values,{resetForm}) => {
-      await submit(null,values);
+    onSubmit: (values) => {
+      submit('mailto: gadelhamarcus27@gmail.com',values);
     },
   });
   useEffect(() => {
-      if(response?.type === 'success'){
-        onOpen({
-          title: "Formulário enviado",
-          description: `Obrigado, ${formik.values.firstName}. Seu formulário foi enviado com sucesso!`,
-          status: "success",
-        });
-        formik.resetForm();
-      }else if (response?.type==='error'){
-        onOpen({
-          title: "Erro",
-          description: response.message,
-          status: "error",
-        });
-      }
-  }, [response, formik.values.firstName, onOpen]);
+      if(response){
+        onOpen(response.type,response.message);
+          if(response.type=== 'success'){
+            formik.resetForm();
+          }
+        }
+      }, [response]);
 
   return (
     <FullScreenSection
@@ -69,7 +61,7 @@ const LandingSection = () => {
         <Box p={6} rounded="md" w="100%">
           <form onSubmit={formik.handleSubmit}>
             <VStack spacing={4}>
-              <FormControl isInvalid={formik.touched.firstName && formik.errors.firstName}>
+              <FormControl isInvalid={formik.touched.firstName && !!formik.errors.firstName}>
                 <FormLabel htmlFor="firstName">Nome</FormLabel>
                 <Input
                   id="firstName"
@@ -79,7 +71,7 @@ const LandingSection = () => {
                 <FormErrorMessage>{formik.errors.firstName}</FormErrorMessage>
               </FormControl>
 
-              <FormControl isInvalid={formik.touched.email && formik.errors.email}>
+              <FormControl isInvalid={formik.touched.email && !!formik.errors.email}>
                 <FormLabel htmlFor="email">Endereço de e-mail</FormLabel>
                 <Input
                   id="email"

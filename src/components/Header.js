@@ -107,9 +107,15 @@ const Header = () => {
           {/* Links internos com scroll suave */}
           <nav>
             <HStack spacing={8}>
-              <a onClick={handleClick("inicio")}style={{cursor: "pointer"}}>Inicio</a>
-              <a onClick={handleClick("projects")}style={{cursor: "pointer"}}>Projetos</a>
-              <a onClick={handleClick("contactme")}style={{cursor: "pointer"}}>Entre em contato</a>
+              <a onClick={handleClick("inicio")}style={{cursor: "pointer"}}>
+                Inicio
+                </a>
+                <a href="#projects" onClick={handleClick("projects")}> 
+               Projects 
+             </a> 
+             <a href="#contactme" onClick={handleClick("contactme")}> 
+               Contact Me 
+             </a> 
             </HStack>
           </nav>
         </HStack>
