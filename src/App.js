@@ -1,4 +1,3 @@
-import { BrowserRouter as Router } from 'react-router-dom';
 import { ChakraProvider } from "@chakra-ui/react";
 import Header from "./components/Header";
 import LandingSection from "./components/LandingSection";
@@ -13,7 +12,6 @@ function App() {
   return (
     <ChakraProvider>
       <AlertProvider>
-        <Router>
           <main>
             <Header />
             <LandingSection />
@@ -22,7 +20,6 @@ function App() {
             <Footer />
             <Alert />
           </main>
-        </Router>
       </AlertProvider>
     </ChakraProvider>
   );
