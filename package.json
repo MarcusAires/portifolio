@@ -1,8 +1,8 @@
 {
-  "name": "v1portifolio",
+  "name": "portifolio",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://MarcusAires.github.io/v1portifolio",
+  "homepage": "https://MarcusAires.github.io/portifolio",
   "dependencies": {
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.13.3",
