@@ -5,28 +5,11 @@ import Card from "./Card";
 
 const projects = [
   {
-    title: "Espaço React",
+    title: "Lista de compras",
     description:
-      "Uma caixa de ferramentas prática para criar componentes AR incríveis em um aplicativo React, com integração ao Redux via middleware",
-    getImageSrc: () => require("../images/photo1.jpg"),
-  },
-  {
-    title: "Scroll infinito React",
-    description:
-      "Uma folha inferior rolável com suporte à virtualização, animações nativas a 60 FPS e totalmente implementada no ambiente JavaScript.🔥️",
-    getImageSrc: () => require("../images/photo2.jpg"),
-  },
-  {
-    title: "Galeria de fotos",
-    description:
-      "Uma plataforma completa para fotógrafos compartilharem e monetizarem suas fotos, permitindo que eles tenham uma segunda fonte de renda.",
-    getImageSrc: () => require("../images/photo3.jpg"),
-  },
-  {
-    title: "Planejador de eventos",
-    description:
-      "Um aplicativo móvel para quem busca lazer, permitindo descobrir eventos e atividades únicas na sua cidade com poucos toques.",
-    getImageSrc: () => require("../images/photo4.jpg"),
+      "Um crud simples que usa apenas HTML, CSS e javascript para criar uma lista de compras com modal, responsividade e localstorage",
+    getImageSrc: () => require("../images/gifcrud.gif"),
+    url: "https://lista-de-compras-mercado-easy.vercel.app/"
   },
 ];
 
@@ -48,12 +31,14 @@ const ProjectsSection = () => {
         gridGap={8}
       >
         {projects.map((project) => (
+          <a href={project.url}>
           <Card
-            key={project.title}
-            title={project.title}
-            description={project.description}
-            imageSrc={project.getImageSrc()}
+          key={project.title}
+          title={project.title}
+          description={project.description}
+          imageSrc={project.getImageSrc()}
           />
+          </a>
         ))}
       </Box>
     </FullScreenSection>

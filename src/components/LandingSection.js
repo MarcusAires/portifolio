@@ -5,11 +5,10 @@ import { px } from "framer-motion";
 import fotoperfil from "../images/fotoperfil.jpg";
 
 const greeting = "Olá, me chamo Marcus!";
-const bio1 = "Desenvolvedor frontend";
-const bio2 = "especialista em React";
+const bio1 = "Desenvolvedor Front-end";
+const bio2 = "React.js & Node.js";
 
-// Implement the UI for the LandingSection component according to the instructions.
-// Use a combination of Avatar, Heading and VStack components.
+
 const LandingSection = () => (
   <FullScreenSection
     justifyContent="center"
@@ -29,10 +28,10 @@ const LandingSection = () => (
        </Heading> 
      </VStack> 
      <VStack spacing={6}> 
-       <Heading as="h1" size="3xl" noOfLines={1}> 
+       <Heading as="h1" size="2xl" noOfLines={1}> 
          {bio1} 
        </Heading> 
-       <Heading as="h1" size="3xl" noOfLines={1}> 
+       <Heading as="h1" size="1xl" noOfLines={1}> 
          {bio2} 
        </Heading> 
      </VStack> 

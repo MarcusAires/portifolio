@@ -3,6 +3,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
 import React from "react";
 import { px } from "framer-motion";
+import {
+  faGithub,
+  faLinkedin,
+  faMedium,
+  faStackOverflow,
+} from "@fortawesome/free-brands-svg-icons";
 
 const Card = ({ title, description, imageSrc}) => {
   return (
@@ -20,8 +26,8 @@ const Card = ({ title, description, imageSrc}) => {
     <Heading color="black">{title}</Heading>
     <Text color="grey">{description}</Text>
     <HStack>
-    <Text color="black">Saiba mais</Text>
-    <FontAwesomeIcon color={"black"}icon={faArrowRight} size="1x"/>
+    <Text color="black"> <a href="https://github.com/MarcusAires/projeto_lista_de_compras"> Confira o código </a></Text>
+    <FontAwesomeIcon color={"black"}icon={faGithub} size="2x"/>
     </HStack>
     </VStack>
     </Box>
