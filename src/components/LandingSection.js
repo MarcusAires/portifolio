@@ -5,18 +5,13 @@ import fotoperfil from "../images/fotoperfil.jpg";
 import { Button, ButtonGroup } from '@chakra-ui/react'
 import { Icon } from "@chakra-ui/react";
 import { FaReact, FaNodeJs, FaJs, FaHtml5, FaCss3Alt, FaGit, FaGithub, FaChalkboardTeacher } from "react-icons/fa";
-import { chakra } from '@chakra-ui/react'
-import { motion, isValidMotionProp } from 'framer-motion'
-
-const ChakraBox = chakra(motion.div, {
-  shouldForwardProp: isValidMotionProp,
-})
-
+import { Link as ChakraLink, Box} from "@chakra-ui/react";
 
 
 const greeting = "Olá, me chamo Marcus!";
 const bio1 = "Desenvolvedor Front-end";
 const bio2 = "React.js & Node.js";
+
 
 const LandingSection = () => (
   <FullScreenSection
@@ -51,6 +46,7 @@ const LandingSection = () => (
         <Button colorScheme="gray">Peça um orçamento</Button>
       </ButtonGroup>
     </HStack>
+
  {/* Seção da Stack */}
  <VStack spacing={4} mt={8}>
       <Heading as="h2" size="lg" color="white">
@@ -69,5 +65,6 @@ const LandingSection = () => (
 
   </FullScreenSection>
 );
+
 
 export default LandingSection;
