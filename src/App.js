@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import LandingSection from "./components/LandingSection";
 import ProjectsSection from "./components/ProjectsSection";
 import Footer from "./components/Footer";
+import Hamburger from "./components/Hamburger";
 
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
     <ChakraProvider>
           <main>
             <Header />
+            <Hamburger/>
             <LandingSection />
             <ProjectsSection />
             <Footer />
