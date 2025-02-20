@@ -21,10 +21,6 @@ const Card = ({ title, description, imageSrc}) => {
     <Image src={imageSrc} alt={title} boxSize="100%" objectFit="cover" borderRadius='lg'/>
     <Heading color="black">{title}</Heading>
     <Text color="grey">{description}</Text>
-    <HStack>
-    <Text color="black"> <a href="https://github.com/MarcusAires/projeto_lista_de_compras"> Confira o código </a></Text>
-    <FontAwesomeIcon color={"black"}icon={faGithub} size="2x"/>
-    </HStack>
     </VStack>
     </Box>
   );

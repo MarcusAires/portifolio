@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState, useRef} from "react";
 import { Avatar, Heading, HStack, VStack } from "@chakra-ui/react";
 import FullScreenSection from "./FullScreenSection";
 import fotoperfil from "../images/fotoperfil.jpg";
@@ -11,6 +11,21 @@ import { Link as ChakraLink, Box} from "@chakra-ui/react";
 const greeting = "Olá, me chamo Marcus!";
 const bio1 = "Desenvolvedor Front-end";
 const bio2 = "React.js & Node.js";
+
+
+const handleClick = (anchor) => () => {
+  if (anchor === "inicio") {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+    return;
+  }
+
+  const id = `${anchor}-section`;
+  const element = document.getElementById(id);
+  if (element) {
+    element.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+};
+
 
 
 const LandingSection = () => (
@@ -42,7 +57,7 @@ const LandingSection = () => (
     </VStack>
     <HStack margin="3rem">
       <ButtonGroup gap={[4, 8]}>
-        <Button colorScheme="blue">Veja meus projetos</Button>
+        <Button colorScheme="blue" onClick={handleClick("projects")} _hover={{transform:"scale(1.05)", transition:"0.3s"}} >Veja meus projetos</Button>
         <Button colorScheme="gray">Peça um orçamento</Button>
       </ButtonGroup>
     </HStack>
