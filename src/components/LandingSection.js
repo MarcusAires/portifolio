@@ -82,7 +82,7 @@ const LandingSection = () => {
     gradient="true"
     gradientColor="#2A4365">
       <HStack spacing={[4,8]}>
-      <Icon as={FaReact} boxSize={[8,14]} color="cyan.400"/>
+      <Icon as={FaReact} boxSize={[8,14]}  color="cyan.400"/>
       <Icon as={FaNodeJs} boxSize={[8,14]} color="green.400" />
       <Icon as={FaJs} boxSize={[8,14]} color="yellow.400" />
       <Icon as={FaHtml5} boxSize={[8,14]} color="red.400" />

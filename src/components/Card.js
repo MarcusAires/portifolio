@@ -1,10 +1,5 @@
-import { Heading, HStack, Image, Text, VStack ,Box, Center} from "@chakra-ui/react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { Heading, HStack, Image, Text, VStack ,Box, Center, flexbox, Flex} from "@chakra-ui/react";
 import React from "react";
-import {
-  faGithub,
-  faLinkedin,
-} from "@fortawesome/free-brands-svg-icons";
 
 const Card = ({ title, description, imageSrc}) => {
   return (
