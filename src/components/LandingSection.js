@@ -1,10 +1,11 @@
-import React, {useEffect, useState, useRef} from "react";
+import React from "react";
 import { Avatar, Heading, HStack, VStack } from "@chakra-ui/react";
 import FullScreenSection from "./FullScreenSection";
 import fotoperfil from "../images/fotoperfil.jpg";
 import { Button, ButtonGroup } from '@chakra-ui/react'
 import { Icon } from "@chakra-ui/react";
 import { FaReact, FaNodeJs, FaJs, FaHtml5, FaCss3Alt, FaGit, FaGithub, FaChalkboardTeacher } from "react-icons/fa";
+import Marquee from "react-fast-marquee";
 
 
 const greeting = "Olá, me chamo Marcus!";
@@ -25,7 +26,7 @@ const LandingSection = () => {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
-  
+
   return(
 
   <FullScreenSection
@@ -56,39 +57,40 @@ const LandingSection = () => {
     </VStack>
     <HStack margin="3rem">
       <ButtonGroup gap={[4, 8]}>
-        <Button colorScheme="blue" onClick={handleClick("projects")} _hover={{transform:"scale(1.05)", transition:"0.3s"}} >Veja meus projetos</Button>
-        <Button colorScheme="gray" onClick={handleClick("projects")} _hover={{transform:"scale(1.05)", transition:"0.3s"}} >Peça um orçamento</Button>
+        <Button colorScheme="blue"
+         onClick={handleClick("projects")}
+          _hover={{transform:"scale(1.05)", 
+          transition:"0.3s"}} >Veja meus projetos</Button>
+        <Button colorScheme="gray"
+         onClick={handleClick("projects")}
+          _hover={{transform:"scale(1.05)",
+           transition:"0.3s"}} >Peça um orçamento</Button>
       </ButtonGroup>
     </HStack>
 
+  
  {/* Seção da Stack */}
  <VStack spacing={4} mt={8}>
       <Heading as="h2" size="lg" color="white">
         Minha stack
       </Heading>
     </VStack>
-    <HStack whiteSpace={"nowrap"} overflow={"hidden"}>
-      <HStack spacing={[6]}>
-      <Icon as={FaReact} boxSize={[8, 14]} color="cyan.400"/>
-      <Icon as={FaNodeJs} boxSize={[8, 14]} color="green.400" />
-      <Icon as={FaJs} boxSize={[8, 14]} color="yellow.400" />
-      <Icon as={FaHtml5} boxSize={[8, 14]} color="red.400" />
-      <Icon as={FaCss3Alt} boxSize={[8, 14]} color="blue.400" />
-      <Icon as={FaGit} boxSize={[8, 14]} color="orange.400" />
-      <Icon as={FaGithub} boxSize={[8, 14]} color="gray.400" />
+    <Marquee autoFill="true" 
+    speed={15} 
+    pauseOnHover 
+    direction="right" 
+    gradient="true"
+    gradientColor="#2A4365">
+      <HStack spacing={[4,8]}>
+      <Icon as={FaReact} boxSize={[8,14]} color="cyan.400"/>
+      <Icon as={FaNodeJs} boxSize={[8,14]} color="green.400" />
+      <Icon as={FaJs} boxSize={[8,14]} color="yellow.400" />
+      <Icon as={FaHtml5} boxSize={[8,14]} color="red.400" />
+      <Icon as={FaCss3Alt} boxSize={[8,14]} color="blue.400" />
+      <Icon as={FaGit} boxSize={[8,14]} color="orange.400" />
+      <Icon as={FaGithub} boxSize={[8,14]} color="gray.400" />
       </HStack>
-
-      <HStack spacing={[6]}>
-      <Icon as={FaReact} boxSize={[8, 14]} color="cyan.400"/>
-      <Icon as={FaNodeJs} boxSize={[8, 14]} color="green.400" />
-      <Icon as={FaJs} boxSize={[8, 14]} color="yellow.400" />
-      <Icon as={FaHtml5} boxSize={[8, 14]} color="red.400" />
-      <Icon as={FaCss3Alt} boxSize={[8, 14]} color="blue.400" />
-      <Icon as={FaGit} boxSize={[8, 14]} color="orange.400" />
-      <Icon as={FaGithub} boxSize={[8, 14]} color="gray.400" />
-      </HStack>
-    </HStack>
-
+    </Marquee>
   </FullScreenSection>
   );
 };
