@@ -5,30 +5,29 @@ import fotoperfil from "../images/fotoperfil.jpg";
 import { Button, ButtonGroup } from '@chakra-ui/react'
 import { Icon } from "@chakra-ui/react";
 import { FaReact, FaNodeJs, FaJs, FaHtml5, FaCss3Alt, FaGit, FaGithub, FaChalkboardTeacher } from "react-icons/fa";
-import { Link as ChakraLink, Box} from "@chakra-ui/react";
 
 
 const greeting = "Olá, me chamo Marcus!";
 const bio1 = "Desenvolvedor Front-end";
 const bio2 = "React.js & Node.js";
 
+const LandingSection = () => {
 
-const handleClick = (anchor) => () => {
-  if (anchor === "inicio") {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-    return;
-  }
+  const handleClick = (anchor) => () => {
+    if (anchor === "inicio") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+  
+    const id = `${anchor}-section`;
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+  
+  return(
 
-  const id = `${anchor}-section`;
-  const element = document.getElementById(id);
-  if (element) {
-    element.scrollIntoView({ behavior: "smooth", block: "start" });
-  }
-};
-
-
-
-const LandingSection = () => (
   <FullScreenSection
     justifyContent="center"
     alignItems="center"
@@ -58,7 +57,7 @@ const LandingSection = () => (
     <HStack margin="3rem">
       <ButtonGroup gap={[4, 8]}>
         <Button colorScheme="blue" onClick={handleClick("projects")} _hover={{transform:"scale(1.05)", transition:"0.3s"}} >Veja meus projetos</Button>
-        <Button colorScheme="gray">Peça um orçamento</Button>
+        <Button colorScheme="gray" onClick={handleClick("projects")} _hover={{transform:"scale(1.05)", transition:"0.3s"}} >Peça um orçamento</Button>
       </ButtonGroup>
     </HStack>
 
@@ -67,6 +66,8 @@ const LandingSection = () => (
       <Heading as="h2" size="lg" color="white">
         Minha stack
       </Heading>
+    </VStack>
+    <HStack whiteSpace={"nowrap"} overflow={"hidden"}>
       <HStack spacing={[6]}>
       <Icon as={FaReact} boxSize={[8, 14]} color="cyan.400"/>
       <Icon as={FaNodeJs} boxSize={[8, 14]} color="green.400" />
@@ -76,10 +77,21 @@ const LandingSection = () => (
       <Icon as={FaGit} boxSize={[8, 14]} color="orange.400" />
       <Icon as={FaGithub} boxSize={[8, 14]} color="gray.400" />
       </HStack>
-    </VStack>
+
+      <HStack spacing={[6]}>
+      <Icon as={FaReact} boxSize={[8, 14]} color="cyan.400"/>
+      <Icon as={FaNodeJs} boxSize={[8, 14]} color="green.400" />
+      <Icon as={FaJs} boxSize={[8, 14]} color="yellow.400" />
+      <Icon as={FaHtml5} boxSize={[8, 14]} color="red.400" />
+      <Icon as={FaCss3Alt} boxSize={[8, 14]} color="blue.400" />
+      <Icon as={FaGit} boxSize={[8, 14]} color="orange.400" />
+      <Icon as={FaGithub} boxSize={[8, 14]} color="gray.400" />
+      </HStack>
+    </HStack>
 
   </FullScreenSection>
-);
+  );
+};
 
 
 export default LandingSection;
