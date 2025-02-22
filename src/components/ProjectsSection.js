@@ -15,28 +15,28 @@ const projects = [
     repo: 'https://github.com/MarcusAires/projeto_lista_de_compras.git'
   },
   {
-    title: "Lista de compras",
+    title: "CRM/Dashboard",
     description:
-      "Um CRUD simples que usa apenas HTML, CSS e javascript para criar uma lista de compras com modal, responsividade e localstorage",
-    url: "https://lista-de-compras-mercado-easy.vercel.app/",
+      "Um CRM construido utilizando bibliotecas react para estilização mais rápida como chakra-ui, React.Js, banco de dados postgreSQL e Node.Js no back-end",
+    url: "",
     img: require('../images/gifcrud.gif'),
-    repo: 'https://github.com/MarcusAires/projeto_lista_de_compras.git'
+    repo: 'https://github.com/MarcusAires'
   },
   {
-    title: "Lista de compras",
+    title: "E-commerce",
     description:
-      "Um CRUD simples que usa apenas HTML, CSS e javascript para criar uma lista de compras com modal, responsividade e localstorage",
-    url: "https://lista-de-compras-mercado-easy.vercel.app/",
+      "Plataforma de e",
+    url: "",
     img: require('../images/gifcrud.gif'),
-    repo: 'https://github.com/MarcusAires/projeto_lista_de_compras.git'
+    repo: 'https://github.com/MarcusAires'
   },
   {
-    title: "Lista de compras",
+    title: "CodeVania Game",
     description:
-      "Um CRUD simples que usa apenas HTML, CSS e javascript para criar uma lista de compras com modal, responsividade e localstorage",
-    url: "https://lista-de-compras-mercado-easy.vercel.app/",
+      "",
+    url: "",
     img: require('../images/gifcrud.gif'),
-    repo: 'https://github.com/MarcusAires/projeto_lista_de_compras.git'
+    repo: 'https://github.com/MarcusAires'
   },
 
 ];
@@ -53,7 +53,7 @@ const ProjectsSection = () => {
       <Heading as="h1" id="projects-section">
         Meus projetos
       </Heading>
-      <SimpleGrid spacing={4} templateColumns='repeat(auto-fill, minmax(200px,1fr))'>
+      <SimpleGrid spacing={16} gridTemplateColumns={['repeat(1, 1fr)','repeat(2 , 1fr)']}>
         {projects.map((project) => (
           <Card maxW='sm'>
             <CardBody>
@@ -63,7 +63,7 @@ const ProjectsSection = () => {
             borderRadius='lg'
             />
             <Stack mt='6' spacing='3'>
-              <Heading size='md'>{project.title}</Heading>
+              <Heading size={['sm', 'md']}>{project.title}</Heading>
               <Text>
                 {project.description}
               </Text>
