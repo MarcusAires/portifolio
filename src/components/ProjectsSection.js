@@ -1,7 +1,11 @@
 import React from "react";
 import FullScreenSection from "./FullScreenSection";
-import { CardHeader, CardFooter, CardBody, Heading, Card, SimpleGrid,Image,Stack, Text, Divider, ButtonGroup, Button, Icon} from "@chakra-ui/react";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { CardHeader, CardFooter, CardBody, Heading, Card, SimpleGrid, Image, Stack, Text, Divider, ButtonGroup, Button, Icon, HStack } from "@chakra-ui/react";
+import Lottie from 'lottie-react'; // Importe o Lottie
+import animationCRM from '../animations/crm-animation.json';
+import animationEcommerce from '../animations/ecommerce-animation.json';
+import animationGame from '../animations/game-animation.json';
+import { FaGithub} from "react-icons/fa";
 
 
 
@@ -19,26 +23,25 @@ const projects = [
     description:
       "Um CRM construido utilizando bibliotecas react para estilização mais rápida como chakra-ui, React.Js, banco de dados postgreSQL e Node.Js no back-end",
     url: "",
-    img: require('../images/gifcrud.gif'),
+    img: require('../images/placeholder.gif'),
     repo: 'https://github.com/MarcusAires'
   },
   {
     title: "E-commerce",
     description:
-      "Plataforma de e",
+      "Plataforma de E-commerce com admin panel de modo que o dono da loja possa fazer adição de produtos, exclusão e modificar preços de forma autonôma. Utilizei stack MERN",
     url: "",
-    img: require('../images/gifcrud.gif'),
+    img: require('../images/placeholder.gif'),
     repo: 'https://github.com/MarcusAires'
   },
   {
     title: "CodeVania Game",
     description:
-      "",
+      "Game web inspirado no estilo metroidvania. Game foi construido inteiramente com um framework javascript, Phase.Js",
     url: "",
-    img: require('../images/gifcrud.gif'),
+    img: require('../images/placeholder.gif'),
     repo: 'https://github.com/MarcusAires'
   },
-
 ];
 
 const ProjectsSection = () => {
@@ -53,40 +56,56 @@ const ProjectsSection = () => {
       <Heading as="h1" id="projects-section">
         Meus projetos
       </Heading>
-      <SimpleGrid spacing={16} gridTemplateColumns={['repeat(1, 1fr)','repeat(2 , 1fr)']}>
+      <SimpleGrid spacing={16} gridTemplateColumns={['repeat(1, 1fr)', 'repeat(2, 1fr)']}>
         {projects.map((project) => (
-          <Card maxW='sm'>
+          <Card maxW='sm' key={project.title}>
             <CardBody>
-            <Image
-            src={project.img}
-            alt={project.title}
-            borderRadius='lg'
-            />
-            <Stack mt='6' spacing='3'>
-              <Heading size={['sm', 'md']}>{project.title}</Heading>
-              <Text>
-                {project.description}
-              </Text>
-            </Stack>
+              {project.url ? ( // Se houver URL, exibe a imagem
+                <Image
+                  src={project.img}
+                  alt={project.title}
+                  borderRadius='lg'
+                />
+              ) : ( // Se não houver URL, exibe a animação Lottie
+                <Lottie
+                  animationData={
+                    project.title === "CRM/Dashboard" ? animationCRM :
+                    project.title === "E-commerce" ? animationEcommerce :
+                    animationGame
+                  }
+                  loop={true}
+                  autoplay={true}
+                  style={{ width: '100%', height: '200px' }}
+                />
+              )}
+              <Stack mt='6' spacing='3'>
+                <Heading size={['sm', 'md']}>{project.title}</Heading>
+                <Text>
+                  {project.description}
+                </Text>
+              </Stack>
             </CardBody>
-            <Divider/>
+            <Divider />
             <CardFooter>
               <ButtonGroup spacing='2'>
-              <Button variant='solid' colorScheme='blue'>
-               <a href={project.url} target="_blank">
-                Visite a página 
-                </a> 
-              </Button>
-              <Button variant='ghost' colorScheme="blue">
-                <a href={project.repo} target='_blank'>
-                Confira o código
-                </a>
-              </Button>
+                <Button variant='solid' colorScheme='blue'>
+                  <a href={project.url || "#"} target="_blank" rel="noopener noreferrer">
+                    {project.url ? "Visite a página" : "Em construção"}
+                  </a>
+                </Button>
+                <Button variant='ghost' colorScheme="blue">
+                  <HStack>
+                  <a href={project.repo} target='_blank' rel="noopener noreferrer">
+                    Confira o código 
+                  </a>
+                    <Icon as={FaGithub} boxSize={8}/>
+                  </HStack>
+                </Button>
               </ButtonGroup>
             </CardFooter>
           </Card>
         ))}
-        </SimpleGrid>
+      </SimpleGrid>
     </FullScreenSection>
   );
 };
