@@ -1,7 +1,8 @@
-import { Heading, HStack, Image, Text, VStack ,Box, Center, flexbox, Flex} from "@chakra-ui/react";
+/*import { Heading, HStack, Image, Text, VStack ,Box, Center} from "@chakra-ui/react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 
-const Card = ({ title, description, imageSrc}) => {
+/* const Card = ({ title, description, imageSrc}) => {
   return (
     <Box 
     bgColor="white"
@@ -21,4 +22,4 @@ const Card = ({ title, description, imageSrc}) => {
   );
 };
 
-export default Card;
+export default Card; */
