@@ -88,17 +88,17 @@ const ProjectsSection = () => {
             <Divider />
             <CardFooter>
               <ButtonGroup spacing='2'>
-                <Button variant='solid' colorScheme='blue'>
+                <Button variant='solid' colorScheme='blue' fontSize={['sm','md']}>
                   <a href={project.url || "#"} target="_blank" rel="noopener noreferrer">
                     {project.url ? "Visite a página" : "Em construção"}
                   </a>
                 </Button>
-                <Button variant='ghost' colorScheme="blue">
+                <Button variant='ghost' colorScheme="blue" fontSize={['sm','md']}>
                   <HStack>
                   <a href={project.repo} target='_blank' rel="noopener noreferrer">
                     Confira o código 
                   </a>
-                    <Icon as={FaGithub} boxSize={8}/>
+                    <Icon as={FaGithub} boxSize={[4,8]}/>
                   </HStack>
                 </Button>
               </ButtonGroup>
