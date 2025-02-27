@@ -4,6 +4,7 @@ import LandingSection from "./components/LandingSection";
 import ProjectsSection from "./components/ProjectsSection";
 import Footer from "./components/Footer";
 import Hamburger from "./components/Hamburger";
+import ContactSection from './components/ContactSection';
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
             <Hamburger/>
             <LandingSection />
             <ProjectsSection />
+            <ContactSection />
             <Footer />
           </main>
     </ChakraProvider>
