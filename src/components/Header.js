@@ -85,7 +85,7 @@ const Header = () => {
               Projetos
             </ChakraLink>
             <ChakraLink 
-            onClick={handleClick("contactme")} 
+            onClick={handleClick("contact")} 
             cursor="pointer"
             _hover={{ textDecoration: "none" }}  // Garante que o hover também não tenha underline
             _active={{ textDecoration: "none" }}  // Garante que o active também não tenha underline

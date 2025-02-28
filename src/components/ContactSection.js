@@ -1,10 +1,97 @@
-function ContactSection() {
-  return (
+import { Heading, Box, VStack, Input, Button, Textarea, Text, Link, ButtonGroup, SimpleGrid, Flex } from "@chakra-ui/react";
+import FullScreenSection from "./FullScreenSection";
+import React, { useRef } from 'react';
+import emailjs from '@emailjs/browser';
+import { FaLinkedin, FaGithub, FaWhatsapp, FaDownload } from "react-icons/fa";
 
-    <section>
-        <h1>Sobre mim</h1>
-    </section>
-  )
+function ContactSection() {
+
+  const form = useRef();
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, {
+        publicKey: 'YOUR_PUBLIC_KEY',
+      })
+      .then(
+        () => {
+          console.log('SUCCESS!');
+        },
+        (error) => {
+          console.log('FAILED...', error.text);
+        },
+      );
+  };
+
+  return (
+    <FullScreenSection
+      backgroundColor="#752D75"
+      isDarkBackground
+      p={8}
+      alignItems="flex-start"
+      spacing={8}
+    >
+      <Heading id="contact-section" textAlign='center' alignItems='center' as='h1'>
+        Vamos transformar sua ideia em código?
+      </Heading>
+
+      {/* Info e Botões à Direita */}
+      <SimpleGrid
+        columns={{ base: 1, md: 2 }} // 1 coluna no mobile, 2 nas telas maiores
+        spacing={8}
+        alignItems="flex-start"
+      >
+        {/* Fomulário */}
+        <Box mt={10}>
+          <form ref={form} onSubmit={sendEmail}>
+            <VStack spacing={4} align="stretch">
+              <label htmlFor="nome">Nome</label>
+              <Input placeholder="Nome" name="nome" />
+              <label htmlFor="email">E-mail</label>
+              <Input placeholder="E-mail" type="email" name="email" />
+              <label htmlFor="telefone">Telefone (DDD)</label>
+              <Input placeholder="Telefone (opcional)" type="tel" name="telefone" />
+              <label htmlFor="assunto">Assunto</label>
+              <Input placeholder="Assunto" name="assunto" />
+              <label htmlFor="mensagem">O que vamos construir?</label>
+              <Textarea placeholder="Sua mensagem" name="mensagem" />
+              <Button colorScheme="purple" size="lg" type="submit">Enviar</Button>
+            </VStack>
+          </form>
+        </Box>
+
+        <Box mt={8} ml={{base:8, md:20}}>
+          <Heading as="h2" mb={{base:4, md:8}}>Sobre mim</Heading>
+          <Text mb={{base:4, md:8}} fontSize={{base:16, md:22}}>
+            Meu nome é Marcus. Sou um desenvolvedor Front-End certificado pela Meta e graduando em Engenharia de Software.
+          </Text>
+          <Text mb={{base:4, md:8}} fontSize={{base:16, md:22}}>
+            Sempre fui muito interessado por filosofia e raciocínio lógico, e percebi que essas coisas não pertencem apenas a uma área de conhecimento, elas fazem parte das nossas vidas.
+          </Text>
+          <Text mb={{base:4, md:8}} fontSize={{base:16, md:22}}>
+            Estou atualmente construindo meu caminho ao desenvolvimento Full-Stack com foco na stack MERN. Gostou do que viu por aqui? Entre em contato! Será um prazer ajudar a construir sua ideia.
+          </Text>
+          <SimpleGrid columns={{base:1, md:4}} spacing={8}>
+            <Button as="a" href="/seu-cv.pdf" leftIcon={<FaDownload />} colorScheme="gray">
+              Currículo
+            </Button>
+            <Button as={Link} href="https://www.linkedin.com/in/marcus-paulo-aires-23075b29a/" leftIcon={<FaLinkedin />} colorScheme="blue" target='_blank' rel="noopener noreferrer">
+              LinkedIn
+            </Button>
+            <Button as={Link} href="https://github.com/MarcusAires" leftIcon={<FaGithub />} colorScheme="gray" target='_blank' rel="noopener noreferrer">
+              GitHub
+            </Button>
+            <Button as={Link} href="https://wa.me/5584999479036" leftIcon={<FaWhatsapp />} colorScheme="green" target='_blank' rel="noopener noreferrer">
+              WhatsApp
+            </Button>
+          </SimpleGrid>
+        </Box>
+
+        
+      </SimpleGrid>
+    </FullScreenSection>
+  );
 }
 
-export default ContactSection
+export default ContactSection;

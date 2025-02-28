@@ -63,7 +63,7 @@ const LandingSection = () => {
           _hover={{transform:"scale(1.05)", 
           transition:"0.3s"}} >Veja meus projetos</Button>
         <Button colorScheme="gray"
-         onClick={handleClick("projects")}
+         onClick={handleClick("contact")}
           _hover={{transform:"scale(1.05)",
            transition:"0.3s"}} >Peça um orçamento</Button>
       </ButtonGroup>
