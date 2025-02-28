@@ -12,8 +12,11 @@ function ContactSection() {
     e.preventDefault();
 
     emailjs
-      .sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, {
-        publicKey: 'YOUR_PUBLIC_KEY',
+      .sendForm(
+        'service_nzd4qsg', 
+        'template_r6mirzl', 
+        form.current, {
+        publicKey: 'Sju51C0kg6V94WEbW',
       })
       .then(
         () => {
@@ -23,6 +26,7 @@ function ContactSection() {
           console.log('FAILED...', error.text);
         },
       );
+      e.target.reset();
   };
 
   return (
@@ -47,24 +51,24 @@ function ContactSection() {
         <Box mt={10}>
           <form ref={form} onSubmit={sendEmail}>
             <VStack spacing={4} align="stretch">
-              <label htmlFor="nome">Nome</label>
-              <Input name="nome" type="text" placeholder="Nome" />
+              <label htmlFor="user_name">Nome</label>
+              <input style={{outline: '3px solid hsl(203, 30%, 26%)'}} name="user_name" type="text" placeholder="Nome" />
               
-              <label htmlFor="email">E-mail</label>
-              <Input name="email" type="email" placeholder="E-mail" />
+              <label htmlFor="user_email">E-mail</label>
+              <input style={{outline: '3px solid hsl(203, 30%, 26%)'}} name="user_email" type="email" placeholder="E-mail" />
               
-              <label htmlFor="telefone">Telefone</label>
-              <Input name="telefone" type="tel" placeholder="Telefone (opcional)" />
+              <label htmlFor="user_phone">Telefone</label>
+              <input style={{outline: '3px solid hsl(203, 30%, 26%)'}} name="user_phone" type="tel" placeholder="Telefone (opcional)" />
               
-              <label htmlFor="assunto">Assunto</label>
-              <Input name="assunto" type="text" placeholder="Assunto" />
+              <label htmlFor="subject">Assunto</label>
+              <input style={{outline: '3px solid hsl(203, 30%, 26%)'}} name="subject" type="text" placeholder="Assunto" />
               
-              <label htmlFor="mensagem">Mensagem</label>
-              <Textarea name="mensagem" placeholder="Sua mensagem" />
+              <label htmlFor="message">Mensagem</label>
+              <textarea name="message" placeholder="Sua mensagem" />
               
-              <Button colorScheme="purple" size="lg" type="submit">
+              <button colorScheme="purple" size="lg" type="submit">
                 Enviar
-              </Button>
+              </button>
             </VStack>
           </form>
         </Box>
