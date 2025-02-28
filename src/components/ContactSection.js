@@ -49,8 +49,9 @@ function ContactSection() {
       >
         {/* Fomulário */}
         <Box mt={10}>
+          <Heading>Peça um orçamento</Heading>
           <form ref={form} onSubmit={sendEmail}>
-            <VStack spacing={4} align="stretch">
+            <VStack spacing={4} align="stretch" mt={10}>
               <label htmlFor="user_name">Nome</label>
               <input style={{outline: '3px solid hsl(203, 30%, 26%)'}} name="user_name" type="text" placeholder="Nome" />
               
@@ -66,22 +67,22 @@ function ContactSection() {
               <label htmlFor="message">Mensagem</label>
               <textarea name="message" placeholder="Sua mensagem" />
               
-              <button colorScheme="purple" size="lg" type="submit">
+              <Button colorScheme="purple" size="lg" type="submit">
                 Enviar
-              </button>
+              </Button>
             </VStack>
           </form>
         </Box>
 
-        <Box mt={8} ml={{base:8, md:20}}>
+        <Box mt={10} ml={{base:8, md:20}}>
           <Heading as="h2" mb={{base:4, md:8}}>Sobre mim</Heading>
-          <Text mb={{base:4, md:8}} fontSize={{base:16, md:22}}>
+          <Text mb={{base:4, md:8}} fontSize={{base:16, md:20}}>
             Meu nome é Marcus. Sou um desenvolvedor Front-End certificado pela Meta e graduando em Engenharia de Software.
           </Text>
-          <Text mb={{base:4, md:8}} fontSize={{base:16, md:22}}>
+          <Text mb={{base:4, md:8}} fontSize={{base:16, md:20}}>
             Sempre fui muito interessado por filosofia e raciocínio lógico, e percebi que essas coisas não pertencem apenas a uma área de conhecimento, elas fazem parte das nossas vidas.
           </Text>
-          <Text mb={{base:4, md:8}} fontSize={{base:16, md:22}}>
+          <Text mb={{base:4, md:8}} fontSize={{base:16, md:20}}>
             Estou atualmente construindo meu caminho ao desenvolvimento Full-Stack com foco na stack MERN. Gostou do que viu por aqui? Entre em contato! Será um prazer ajudar a construir sua ideia.
           </Text>
           <SimpleGrid columns={{base:1, md:4}} spacing={8}>
