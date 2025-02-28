@@ -3,6 +3,7 @@ import FullScreenSection from "./FullScreenSection";
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
 import { FaLinkedin, FaGithub, FaWhatsapp, FaDownload } from "react-icons/fa";
+import curriculo from '../images/curriculo.pdf';
 
 function ContactSection() {
 
@@ -47,16 +48,23 @@ function ContactSection() {
           <form ref={form} onSubmit={sendEmail}>
             <VStack spacing={4} align="stretch">
               <label htmlFor="nome">Nome</label>
-              <Input placeholder="Nome" name="nome" />
+              <Input name="nome" type="text" placeholder="Nome" />
+              
               <label htmlFor="email">E-mail</label>
-              <Input placeholder="E-mail" type="email" name="email" />
-              <label htmlFor="telefone">Telefone (DDD)</label>
-              <Input placeholder="Telefone (opcional)" type="tel" name="telefone" />
+              <Input name="email" type="email" placeholder="E-mail" />
+              
+              <label htmlFor="telefone">Telefone</label>
+              <Input name="telefone" type="tel" placeholder="Telefone (opcional)" />
+              
               <label htmlFor="assunto">Assunto</label>
-              <Input placeholder="Assunto" name="assunto" />
-              <label htmlFor="mensagem">O que vamos construir?</label>
-              <Textarea placeholder="Sua mensagem" name="mensagem" />
-              <Button colorScheme="purple" size="lg" type="submit">Enviar</Button>
+              <Input name="assunto" type="text" placeholder="Assunto" />
+              
+              <label htmlFor="mensagem">Mensagem</label>
+              <Textarea name="mensagem" placeholder="Sua mensagem" />
+              
+              <Button colorScheme="purple" size="lg" type="submit">
+                Enviar
+              </Button>
             </VStack>
           </form>
         </Box>
@@ -73,7 +81,7 @@ function ContactSection() {
             Estou atualmente construindo meu caminho ao desenvolvimento Full-Stack com foco na stack MERN. Gostou do que viu por aqui? Entre em contato! Será um prazer ajudar a construir sua ideia.
           </Text>
           <SimpleGrid columns={{base:1, md:4}} spacing={8}>
-            <Button as="a" href="/seu-cv.pdf" leftIcon={<FaDownload />} colorScheme="gray">
+            <Button as="a" href={curriculo} leftIcon={<FaDownload />} colorScheme="gray" target="_blank" rel="noreferrer">
               Currículo
             </Button>
             <Button as={Link} href="https://www.linkedin.com/in/marcus-paulo-aires-23075b29a/" leftIcon={<FaLinkedin />} colorScheme="blue" target='_blank' rel="noopener noreferrer">
