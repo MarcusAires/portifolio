@@ -1,4 +1,14 @@
-import { Heading, Box, VStack, Input, Button, Textarea, Text, Link, ButtonGroup, SimpleGrid, Flex } from "@chakra-ui/react";
+import { 
+  Heading,
+   Box, 
+   VStack, 
+    Button, 
+    Text, 
+    Link, 
+    SimpleGrid, 
+    useToast
+ }
+  from "@chakra-ui/react";
 import FullScreenSection from "./FullScreenSection";
 import React, { useRef } from 'react';
 import emailjs from '@emailjs/browser';
@@ -6,7 +16,8 @@ import { FaLinkedin, FaGithub, FaWhatsapp, FaDownload } from "react-icons/fa";
 import curriculo from '../images/curriculo.pdf';
 
 function ContactSection() {
-
+  
+  const toast = useToast()
   const form = useRef();
   const sendEmail = (e) => {
     e.preventDefault();
@@ -20,7 +31,14 @@ function ContactSection() {
       })
       .then(
         () => {
-          console.log('SUCCESS!');
+          toast({
+            position:'top',
+            title: 'Mensagem enviada com sucesso!',
+            description: "Obrigado por entrar em contato. Responderei a mensagem o mais rápido possível!",
+            status: 'success',
+            duration: 9000,
+            isClosable: true,
+          })
         },
         (error) => {
           console.log('FAILED...', error.text);
@@ -31,7 +49,7 @@ function ContactSection() {
 
   return (
     <FullScreenSection
-      backgroundColor="#752D75"
+      backgroundColor="#805AD5"
       isDarkBackground
       p={8}
       alignItems="flex-start"
@@ -41,31 +59,87 @@ function ContactSection() {
         Vamos transformar sua ideia em código?
       </Heading>
 
-      {/* Info e Botões à Direita */}
       <SimpleGrid
         columns={{ base: 1, md: 2 }} // 1 coluna no mobile, 2 nas telas maiores
         spacing={8}
         alignItems="flex-start"
       >
         {/* Fomulário */}
-        <Box mt={10}>
-          <Heading>Peça um orçamento</Heading>
-          <form ref={form} onSubmit={sendEmail}>
-            <VStack spacing={4} align="stretch" mt={10}>
-              <label htmlFor="user_name">Nome</label>
-              <input style={{outline: '3px solid hsl(203, 30%, 26%)'}} name="user_name" type="text" placeholder="Nome" />
+        <Box mt={4}>
+          <Heading margin={'25px'}>Peça um orçamento</Heading>
+          <form ref={form} onSubmit={sendEmail} 
+          style={{maxWidth:'500px',
+           width:'100%', 
+           background:'#fff', 
+           padding:'25px 25px 30px',
+           borderRadius:'8px',
+           boxShadow:'0 0 10px rgba(0,0,0, .1)',
+           color:'#333',
+           margin:'25px'
+           }}>
+            <VStack spacing={4} align="stretch" mt={4}>
+              <label htmlFor="nome">Nome *</label>
+              <input style={{
+                width:'100%',
+                height:'50px',
+                background:'transparent',
+                border:'2px solid #ddd',
+                outline:'none',
+                borderRadius:'8px',
+                padding:'16px',
+                fontSize:'16px',
+                color:'#333',
+              }} name="nome" type="text" placeholder="Nome" required/>
               
-              <label htmlFor="user_email">E-mail</label>
-              <input style={{outline: '3px solid hsl(203, 30%, 26%)'}} name="user_email" type="email" placeholder="E-mail" />
+              <label htmlFor="email">E-mail *</label>
+              <input style={{
+                width:'100%',
+                height:'50px',
+                background:'transparent',
+                border:'2px solid #ddd',
+                outline:'none',
+                borderRadius:'8px',
+                padding:'16px',
+                fontSize:'16px',
+                color:'#333',
+              }} name="email" type="email" placeholder="E-mail" required/>
               
-              <label htmlFor="user_phone">Telefone</label>
-              <input style={{outline: '3px solid hsl(203, 30%, 26%)'}} name="user_phone" type="tel" placeholder="Telefone (opcional)" />
+              <label htmlFor="telefone">Telefone</label>
+              <input style={{
+                width:'100%',
+                height:'50px',
+                background:'transparent',
+                border:'2px solid #ddd',
+                outline:'none',
+                borderRadius:'8px',
+                padding:'16px',
+                fontSize:'16px',
+                color:'#333',
+              }} name="telefone" type="tel" placeholder="Telefone (opcional)" />
               
-              <label htmlFor="subject">Assunto</label>
-              <input style={{outline: '3px solid hsl(203, 30%, 26%)'}} name="subject" type="text" placeholder="Assunto" />
+              <label htmlFor="assunto">Assunto</label>
+              <input style={{
+                width:'100%',
+                height:'50px',
+                background:'transparent',
+                border:'2px solid #ddd',
+                outline:'none',
+                borderRadius:'8px',
+                padding:'16px',
+                fontSize:'16px',
+                color:'#333',
+              }} name="assunto" type="text" placeholder="Assunto" />
               
-              <label htmlFor="message">Mensagem</label>
-              <textarea name="message" placeholder="Sua mensagem" />
+              <label htmlFor="mensagem">Mensagem *</label>
+              <textarea name="mensagem" placeholder="Sua mensagem"
+              style={{
+                height:'100px',
+                resize:'none',
+                border:'2px solid #ddd',
+                borderRadius:'8px',
+                outline:'none',
+              }}
+              required/>
               
               <Button colorScheme="purple" size="lg" type="submit">
                 Enviar
@@ -73,17 +147,17 @@ function ContactSection() {
             </VStack>
           </form>
         </Box>
-
-        <Box mt={10} ml={{base:8, md:20}}>
+      {/* Info e Botões*/}
+        <Box mt={10} ml={{base:4, md:8}}>
           <Heading as="h2" mb={{base:4, md:8}}>Sobre mim</Heading>
           <Text mb={{base:4, md:8}} fontSize={{base:16, md:20}}>
-            Meu nome é Marcus. Sou um desenvolvedor Front-End certificado pela Meta e graduando em Engenharia de Software.
+          Olá! Meu nome é Marcus. Sou desenvolvedor Front-End certificado pela Meta e graduando em Engenharia de Software.</Text>
+          <Text mb={{base:4, md:8}} fontSize={{base:16, md:20}}>
+          Minha paixão por filosofia e raciocínio lógico me levou naturalmente ao mundo da programação, onde transformar ideias em código se tornou minha forma de criar soluções e resolver desafios.
           </Text>
           <Text mb={{base:4, md:8}} fontSize={{base:16, md:20}}>
-            Sempre fui muito interessado por filosofia e raciocínio lógico, e percebi que essas coisas não pertencem apenas a uma área de conhecimento, elas fazem parte das nossas vidas.
-          </Text>
-          <Text mb={{base:4, md:8}} fontSize={{base:16, md:20}}>
-            Estou atualmente construindo meu caminho ao desenvolvimento Full-Stack com foco na stack MERN. Gostou do que viu por aqui? Entre em contato! Será um prazer ajudar a construir sua ideia.
+          Atualmente, estou expandindo meus conhecimentos para o desenvolvimento Full-Stack, com foco na stack MERN.
+          Gostou do que viu por aqui? Vamos conversar! Será um prazer ajudar a transformar sua ideia em realidade.
           </Text>
           <SimpleGrid columns={{base:1, md:4}} spacing={8}>
             <Button as="a" href={curriculo} leftIcon={<FaDownload />} colorScheme="gray" target="_blank" rel="noreferrer">
