@@ -54,7 +54,7 @@ const ProjectsSection = () => {
       <Heading as="h1" id="projects-section">
         Meus projetos
       </Heading>
-      <SimpleGrid spacing={16} gridTemplateColumns={['repeat(1, 1fr)', 'repeat(2, 1fr)']}>
+      <SimpleGrid spacing={16} gridTemplateColumns={['repeat(1, 1fr)', 'repeat(3, 1fr)']}>
         {projects.map((project) => (
           <Card maxW='sm' key={project.title}>
             <CardBody>

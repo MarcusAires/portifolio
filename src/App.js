@@ -11,7 +11,7 @@ function App() {
   return (
     <ChakraProvider>
       <Box
-        bgGradient="linear(to-b, #2A4365, #2C5282, #2B6CB0, #3182CE)"
+        bgGradient="linear(to-b, #25364e, #2e588b, #2f6eb1, #3092ec)"
         minH="100vh"
       >
         <Header />
