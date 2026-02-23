@@ -131,13 +131,14 @@ function ContactSection() {
               }} name="assunto" type="text" placeholder="Assunto" />
               
               <label htmlFor="mensagem">Mensagem *</label>
-              <textarea name="mensagem" placeholder="Sua mensagem"
-              style={{
+              <textarea name="mensagem" placeholder=" Escreva uma mensagem"
+                style={{
                 height:'100px',
                 resize:'none',
                 border:'2px solid #ddd',
                 borderRadius:'8px',
                 outline:'none',
+                padding:'8px'
               }}
               required/>
               
