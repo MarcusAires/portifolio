@@ -5,7 +5,11 @@ import Lottie from 'lottie-react'; // Importe o Lottie
 import animationCRM from '../animations/crm-animation.json';
 import animationEcommerce from '../animations/ecommerce-animation.json';
 import animationGame from '../animations/game-animation.json';
-import { FaGithub} from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
+import crudGif from "../images/gifcrud.gif";
+import agendagif3 from "../images/Design sem nome.gif";
+import gifAppTempo from "../images/gifAppTempo.gif";
+
 
 
 
@@ -15,33 +19,26 @@ const projects = [
     description:
       "Um CRUD simples que usa apenas HTML, CSS e javascript para criar uma lista de compras com modal, responsividade e localstorage",
     url: "https://lista-de-compras-mercado-easy.vercel.app/",
-    img: require('../images/gifcrud.gif'),
+    img: crudGif,
     repo: 'https://github.com/MarcusAires/projeto_lista_de_compras.git'
   },
   {
-    title: "CRM/Dashboard",
+    title: "App AgendaBarber",
     description:
-      "Um CRM construido utilizando bibliotecas react para estilização mais rápida como chakra-ui, React.Js, banco de dados postgreSQL e Node.Js no back-end",
-    url: "",
-    img: require('../images/placeholder.gif'),
-    repo: 'https://github.com/MarcusAires'
+      "Uma aplicação web para gerenciar agendamentos focado no ramo de barbearias com rotas para página admin e página do cliente, com backend em express",
+    url: "https://agendabarber-1ngf.onrender.com/",
+    img: agendagif3,
+    repo: 'https://github.com/MarcusAires/agendaBarber.git'
   },
   {
-    title: "E-commerce",
+    title: "Previsão do tempo",
     description:
-      "Plataforma de E-commerce com admin panel de modo que o dono da loja possa fazer adição de produtos, exclusão e modificar preços de forma autonôma. Utilizei stack MERN",
-    url: "",
-    img: require('../images/placeholder.gif'),
-    repo: 'https://github.com/MarcusAires'
+      "página simples construida em javascript, html e css usando a API weather para previsão do tempo filtrando por cidade",
+    url: "https://previtempo.vercel.app/",
+    img: gifAppTempo,
+    repo: 'https://github.com/MarcusAires/appPrevTempo.git'
   },
-  {
-    title: "CodeVania Game",
-    description:
-      "Game web inspirado no estilo metroidvania. Game foi construido inteiramente com um framework javascript, Phase.Js",
-    url: "",
-    img: require('../images/placeholder.gif'),
-    repo: 'https://github.com/MarcusAires'
-  },
+
 ];
 
 const ProjectsSection = () => {
@@ -70,8 +67,8 @@ const ProjectsSection = () => {
                 <Lottie
                   animationData={
                     project.title === "CRM/Dashboard" ? animationCRM :
-                    project.title === "E-commerce" ? animationEcommerce :
-                    animationGame
+                      project.title === "E-commerce" ? animationEcommerce :
+                        animationGame
                   }
                   loop={true}
                   autoplay={true}
@@ -88,17 +85,17 @@ const ProjectsSection = () => {
             <Divider />
             <CardFooter>
               <ButtonGroup spacing='2'>
-                <Button variant='solid' colorScheme='blue' fontSize={['sm','md']}>
+                <Button variant='solid' colorScheme='blue' fontSize={['sm', 'md']}>
                   <a href={project.url || "#"} target="_blank" rel="noopener noreferrer">
                     {project.url ? "Visite a página" : "Em construção"}
                   </a>
                 </Button>
-                <Button variant='ghost' colorScheme="blue" fontSize={['sm','md']}>
+                <Button variant='ghost' colorScheme="blue" fontSize={['sm', 'md']}>
                   <HStack>
-                  <a href={project.repo} target='_blank' rel="noopener noreferrer">
-                    Confira o código 
-                  </a>
-                    <Icon as={FaGithub} boxSize={[4,8]}/>
+                    <a href={project.repo} target='_blank' rel="noopener noreferrer">
+                      Confira o código
+                    </a>
+                    <Icon as={FaGithub} boxSize={[4, 8]} />
                   </HStack>
                 </Button>
               </ButtonGroup>
