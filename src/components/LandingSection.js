@@ -34,7 +34,9 @@ const LandingSection = () => {
     justifyContent="center"
     alignItems="center"
     isDarkBackground
-    backgroundColor="#2A4365"
+   // backgroundColor="#2A4365"
+      bg="transparent"
+
   >
     <VStack spacing={[8, 16]}>
       <VStack spacing={[4, 8]} alignItems="center">

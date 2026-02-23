@@ -49,7 +49,8 @@ function ContactSection() {
 
   return (
     <FullScreenSection
-      backgroundColor="#805AD5"
+      // backgroundColor="#2A4365"
+      bg="transparent"
       isDarkBackground
       p={8}
       alignItems="flex-start"
@@ -75,7 +76,7 @@ function ContactSection() {
            borderRadius:'8px',
            boxShadow:'0 0 10px rgba(0,0,0, .1)',
            color:'#333',
-           margin:'25px'
+           margin:'25px auto'
            }}>
             <VStack spacing={4} align="stretch" mt={4}>
               <label htmlFor="nome">Nome *</label>
@@ -131,18 +132,19 @@ function ContactSection() {
               }} name="assunto" type="text" placeholder="Assunto" />
               
               <label htmlFor="mensagem">Mensagem *</label>
-              <textarea name="mensagem" placeholder=" Escreva uma mensagem"
+              <textarea name="mensagem" placeholder="Escreva uma mensagem"
                 style={{
                 height:'100px',
                 resize:'none',
                 border:'2px solid #ddd',
                 borderRadius:'8px',
                 outline:'none',
-                padding:'8px'
+                padding:'8px',
+                paddingLeft:"16px",
               }}
               required/>
               
-              <Button colorScheme="purple" size="lg" type="submit">
+              <Button bg="#F6AD55" _hover={{ bg: "#ED8936" }} size="lg" type="submit">
                 Enviar
               </Button>
             </VStack>
